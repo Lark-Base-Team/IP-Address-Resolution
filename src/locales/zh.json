@@ -1,0 +1,14 @@
+{
+  "choose.table": "请选择数据表",
+  "choose.sourceField": "待转换字段",
+  "choose.targetField": "转换结果字段",
+  "choose.targetLang": "转换目标语言",
+  "choose": "请选择",
+  "start.btn": "批量转换",
+  "err.sourceField": "请选择要转换的字段",
+  "err.targetField": "请选择转换结果字段",
+  "err.table": "请先选择数据表",
+  "success": "转换成功",
+  "err": "转换失败",
+  "trans.num": "已转换 {{num}} 行"
+}

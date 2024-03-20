@@ -1,0 +1,15 @@
+{
+  "choose.table": "Please Choose Table",
+  "choose.sourceField": "Field to be translated",
+  "choose.targetField": "Translation result field",
+  "choose.targetLang": "Target language for translation",
+  "choose": "Please Choose",
+  "start.btn": "Batch Translate",
+  "err.sourceField": "Please choose the field to be translated",
+  "err.targetField": "Please choose the translation result field",
+  "err.targetLang": "Please choose the target language for translation",
+  "err.table": "Please choose table",
+  "success": "Success",
+  "err": "Failed",
+  "trans.num": "{{num}} Rows Translated"
+}
