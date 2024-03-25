@@ -10,5 +10,7 @@
   "err.table": "请先选择数据表",
   "success": "转换成功",
   "err": "转换失败",
-  "trans.num": "已转换 {{num}} 行"
+  "trans.num": "已转换 {{num}} 行",
+  "switch.selectionMode": "仅转换选中的行",
+  "err.noRecordsSelected": "您没有选中任何行，请先选中行再进行转换"
 }

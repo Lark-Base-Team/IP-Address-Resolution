@@ -11,5 +11,7 @@
   "err.table": "Please choose table",
   "success": "Success",
   "err": "Failed",
+  "switch.selectionMode": "Only translate the selected rows",
+  "err.noRecordsSelected": "No Records Selected",
   "trans.num": "{{num}} Rows Translated"
 }
