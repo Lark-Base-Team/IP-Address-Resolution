@@ -31,7 +31,7 @@ export default function Ap() {
   useEffect(() => {
     setLoading(true);
     formApi.current.setValues({
-      selectionMode: true
+      selectionMode: false
     });
     bitable.base.getSelection().then((selection: any) => {
       setTableId(selection.tableId);
@@ -53,7 +53,7 @@ export default function Ap() {
       targetField: "",
       sourceField: "",
       targetLang: "",
-      selectionMode: true
+      selectionMode: false
     });
     bitable.base.getTableById(activeTableId).then((table) => {
       setLoading(true);
