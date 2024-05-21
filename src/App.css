@@ -11,6 +11,10 @@ body .semi-form-field-label {
     font-family: "PingFang SC";
 }
 
+body {
+  background: #fff;
+}
+
 .container {
     width: 100%;
 }
