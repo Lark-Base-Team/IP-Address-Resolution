@@ -22,7 +22,9 @@ export default function Ap() {
   const [loading, setLoading] = useState(false);
   const [tableId, setTableId] = useState<string>("");
   const [viewId, setViewId] = useState<string>("");
+  const [loadingTip, setLoadingTip] = useState('00%');
   const formApi = useRef<any>();
+
   const fieldInfo = useRef<{
     text: FieldMeta[];
     select: FieldMeta[];
@@ -137,11 +139,23 @@ export default function Ap() {
         }
       }
     } else {
-      sourceValueList = await sourceField.getFieldValueList();
+      let recordIdData;
+      let token = undefined as any;
+      do {
+        recordIdData = await sourceField.getFieldValueListByPage(token ? { pageToken: token, pageSize: 200 } : { pageSize: 200 });
+        token = recordIdData.pageToken;
+        sourceValueList.push(...recordIdData.fieldValues.map((v: any) => { v.record_id = v.recordId; return v }))
+        setLoadingTip(`${((token > 200 ? (token - 200) : 0) / recordIdData.total * 100).toFixed(2)}%`)
+      } while (recordIdData.hasMore);
+      console.log(sourceValueList);
+      console.log(await sourceField.getFieldValueList());
+      sourceValueList = await sourceField.getFieldValueList()
     }
 
     // 按照每 100 个元素为一组进行划分
     for (let i = 0; i < sourceValueList.length; i += 100) {
+      console.log(i);
+
       const toTranslateList: any = [];
       let batch: Array<any> = sourceValueList.slice(i, i + 100);
       batch.forEach(({ record_id, value }, index) => {
@@ -188,7 +202,7 @@ export default function Ap() {
 
   return (
     <div>
-      <Spin spinning={loading}>
+      <Spin spinning={loading} tip={loadingTip}>
         <Form
           onChange={onFormChange}
           disabled={loading}
